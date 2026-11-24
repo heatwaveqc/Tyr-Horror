@@ -13,7 +13,7 @@ See [the concept index](docs/concepts/README.md) for current decisions, tentativ
 
 ## Development
 
-Read [AGENTS.md](AGENTS.md) before contributing. It contains self-contained safety and workflow rules adapted from [Too Much Magic's agent contract](https://github.com/heatwaveqc/Too-Much-Magic-Modpack/blob/main/AGENTS.md). That cross-repository link is for consultation and provenance; agents must not assume its contents are automatically loaded.
+Read [AGENTS.md](AGENTS.md) before contributing. It pins the canonical [Tyr Development Standards](https://github.com/heatwaveqc/Tyr-Development-Standards) and declares only project-specific rules. Agents must explicitly retrieve the pinned shared instructions before mutations; a link alone does not load them.
 
 Guiding principle: develop convincing, systemic horror through world interaction and player agency, rather than relying only on jump scares or scripted effects. Keep costly AI/world simulation bounded and avoid irreversible destruction without explicit design approval.
 
