@@ -1,33 +1,15 @@
-# The Stalker — working design
+# The Stalker — concept register entry
 
-**Status:** brainstorming/design, no implementation yet. Name is provisional.
+**State:** accepted concept direction; no implementation or approved release target.
 
-## Accepted direction from concept discussions
+The canonical, detailed Stalker documents now live in a dedicated workspace:
 
-- The Stalker is a **physical, persistent, player-like creature**, not merely an ambient sound/effect generator. It should behave like an autonomous second Minecraft player while trying to stay unnoticed.
-- It should **not begin stalking an individual player before that player places a bed and sets their spawn**. After that trigger, it can appear somewhere in a large radius, gather materials, and establish a hidden base within a large but bounded distance of the player's spawn. Exact ranges are undecided.
-- It should perform **real world interactions** where appropriate: gathering resources, mining blocks, collecting items, crafting useful tools, and establishing a hidden base/treasure hoard.
-- Resource and theft outcomes should be physical and persistent: mined blocks and taken valuables are stored in the Stalker's inventory/hoard, not silently deleted or conjured without a design reason.
-- Early behavior emphasizes remaining near the player while avoiding detection. Hints may resemble the activity of a second player: distant footsteps, mining/blocks breaking, and occasional whispers.
-- Behavior escalates over time toward sneaking closer and eventually touching the player; touches can drain health.
-- When noticed, the Stalker stops. Sustained, uncomfortably long eye contact can banish it and reset or interrupt stalking pressure; exact reset mechanics remain to be specified.
+- **[Target design and confirmed player-facing mechanics](../stalker/README.md)** — spawning only after setting bed respawn, a physical persistent survival creature, escalating stalking, maximum-health loss and recovery, hiding/eye-contact banishment, own-bed rebirth and bedless permanent death.
+- **[Upstream AI engineering references](../stalker/engineering-sources.md)** — inspected Fake Players and MCAi source paths, which architectural patterns appear reusable, license questions and hazardous implementation shortcuts to avoid.
+- **[Milestones, decision blockers and QA acceptance](../stalker/implementation-roadmap.md)** — clear implementation slices, source-readiness limits and pending gameplay testing.
 
-## Design constraints
+The Stalker is a real entity that gathers, mines, crafts and caches physical resources in a hidden underground base near the target player's bed. It prefers to remain unnoticed. Each Minecraft day increases stalking pressure; eventual touching reduces maximum health by one point. The creature stops when spotted and sustained eye contact banishes it, returning lost maximum health.
 
-- The Stalker must obey bounded simulation costs. Any offscreen resource-gathering simulation, pathfinding, block changes, container transactions, chunk tickets, and persistent state must be explicitly designed to prevent lag and save corruption.
-- Player inventories, containers, and bases need safeguards against destructive griefing or irrecoverable theft. Do not implement theft or block destruction just because the concept mentions physical interaction; first settle limits, ownership, recovery, and multiplayer behavior.
-- The creature's power should come from believable actions and its reluctance to be observed, not omniscience or gratuitous unavoidable attacks.
+Banishment returns it to its own bed while that bed exists. If the player has destroyed its bed, banishment moves it to the player's spawn-bed location to seek a new hideout. A further banishment while still bedless ends the Stalker permanently. Exact timing, distances, multiplayer rules, grief/theft boundaries, loader target and implementation details remain explicitly tracked in the linked canonical files.
 
-## Open questions
-
-- Exact spawning/base radius and spawn-search algorithm; whether the entity is unique per player, globally shared, or otherwise coordinated in multiplayer.
-- How it obtains tools/materials without permanently loading distant chunks, and what operations are simulated vs actually performed.
-- How the hidden base is placed relative to protected builds, spawn safety, and world terrain.
-- Which items may be stolen, how often, when they become recoverable, and how to handle private/modded inventories.
-- Rules for repeated sightings, long eye contact, banishment, death, respawn, progression reset, and inactivity.
-- Dimension transitions, player logout, bed relocation, death, world backups, and server restarts.
-- Visual identity, audio frequency, difficulty tuning, and how players discover counterplay.
-
-## Implementation and QA
-
-There is no source code yet. Derive discrete implementation-ready slices and B/C acceptance cases **after** resolving design-sensitive behavior. Track work in GitHub issues/PRs under [AGENTS.md](../../AGENTS.md).
+**Safety boundary:** the concept's presence here does not authorize unattended theft, destructive block operations, chunk loading or a Minecraft boot. Review the local [AGENTS.md](../../AGENTS.md) before implementation.

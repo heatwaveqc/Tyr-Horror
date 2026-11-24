@@ -4,7 +4,7 @@ This is a **design record**, not a development-completion claim. Keep accepted d
 
 ## Current concepts
 
-- [The Stalker](stalker.md) — persistent, resource-gathering, player-like stalking entity with a hidden base and escalating proximity.
+- [The Stalker](stalker.md) — persistent, resource-gathering, player-like stalking entity with an underground base and bed-based banishment/permanent death. Its dedicated [design space](../stalker/README.md) includes [upstream code sources](../stalker/engineering-sources.md) and an [implementation roadmap](../stalker/implementation-roadmap.md).
 - [Liminal](liminal.md) — a layered, Backrooms-inspired dimension with themed biomes and an evolving mold threat.
 
 ## Rules for updating this register
