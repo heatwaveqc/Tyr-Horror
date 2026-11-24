@@ -6,8 +6,8 @@ A repository for experimental **Minecraft horror mods** and their design, implem
 
 ## Current concepts
 
-- **The Stalker** — an elusive, player-like entity that starts its existence after a player has placed a bed and set spawn. It gathers real resources, creates a hidden base and hoard, stalks the player while avoiding sight, and escalates its behavior over time.
-- **Liminal** — a vast, layered, Backrooms-like dimension tentatively called *The Rooms*, featuring increasingly strange and dangerous floors, themed biomes/structures, and an evolving mold ecosystem.
+- **[The Stalker](docs/stalker/README.md)** — an elusive, player-like entity that starts its existence after a player has placed a bed and set spawn. It gathers real resources, creates a hidden underground base and hoard, stalks the player while avoiding sight, and escalates its behavior over time. Its dedicated workspace includes [inspected AI code references](docs/stalker/engineering-sources.md) and an [implementation roadmap](docs/stalker/implementation-roadmap.md).
+- **[Liminal](docs/concepts/liminal.md)** — a vast, layered, Backrooms-like dimension tentatively called *The Rooms*, featuring increasingly strange and dangerous floors, themed biomes/structures, and an evolving mold ecosystem.
 
 See [the concept index](docs/concepts/README.md) for current decisions, tentative ideas, and design questions. **Concept documents are not proof that the features exist in code.**
 
